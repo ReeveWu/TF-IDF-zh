@@ -1,15 +1,20 @@
 from ckiptagger import data_utils, construct_dictionary, WS, POS, NER
+import time
 
 def get_tokenizer():
     return WS("./data"), POS("./data"), NER("./data")
 
 class WordTokenizer:
     def __init__(self):
+        self.ws, self.pos, self.ner = self._initialize_tokenizer()
+    
+    def _initialize_tokenizer(self):
         try:
-            self.ws, self.pos, self.ner = get_tokenizer()
-        except:
+            return get_tokenizer()
+        except FileNotFoundError:
             data_utils.download_data_gdown("./")
-            self.ws, self.pos, self.ner = get_tokenizer()
+            time.sleep(1)
+            return get_tokenizer()
     
     def __call__(self, word_sentence_list, return_ws=True, return_pos=True, return_ner=True, return_ws_only=False, ignore_punctuation_marks=False):
         word_sentence_list = word_sentence_list if isinstance(word_sentence_list, list) else [word_sentence_list]
