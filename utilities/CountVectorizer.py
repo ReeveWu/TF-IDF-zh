@@ -1,5 +1,6 @@
 from typing import Any
 from pprint import pprint
+import numpy as np
 from collections import Counter
 from utilities.WordTokenizer import WordTokenizer
 
