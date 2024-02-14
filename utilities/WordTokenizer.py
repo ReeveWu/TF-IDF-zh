@@ -11,8 +11,15 @@ class WordTokenizer:
             data_utils.download_data_gdown("./")
             self.ws, self.pos, self.ner = get_tokenizer()
     
-    def __call__(self, *args):
-        print(args[0])
-        context = args[0]
-        context = context if isinstance(context, list) else [context]
-        return self.ws(context)
+    def __call__(self, word_sentence_list, return_ws=True, return_pos=True, return_ner=True, return_ws_only=False, ignore_punctuation_marks=False):
+        word_sentence_list = word_sentence_list if isinstance(word_sentence_list, list) else [word_sentence_list]
+        if return_ws_only:
+            return self.ws(word_sentence_list)
+        output = {}
+        if return_ws:
+            output['ws'] = self.ws(word_sentence_list)
+        if return_pos:
+            output['pos'] = self.pos(word_sentence_list)
+            if return_ner:
+                output['ner'] = self.ner(word_sentence_list, output['pos'])
+        return output
