@@ -12,8 +12,6 @@ data.zip
 test.ipynb
 sklearn_test.ipynb
 
-# deta fastapi file
-.space
+# fastapi file
 api.py
-Spacefile
 
