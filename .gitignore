@@ -1,6 +1,19 @@
 **/__pycache__
-.venv
-data*
-test.ipynb
 **/.DS_Store
+
+# virtual environment
+.venv
+
+# ckiptagger depandencies
+data
+data.zip
+
+# test file
+test.ipynb
 sklearn_test.ipynb
+
+# deta fastapi file
+.space
+api.py
+Spacefile
+
