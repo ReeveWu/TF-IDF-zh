@@ -2,6 +2,9 @@ from typing import Any
 from pprint import pprint
 import numpy as np
 from collections import Counter
+
+import os
+
 from utilities.WordTokenizer import WordTokenizer
 
 class CountVectorizer:

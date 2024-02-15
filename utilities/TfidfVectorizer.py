@@ -9,6 +9,11 @@ class TfidfVectorizer:
         self.vocabulary_ = []
         self.idf_ = []
 
+    def reset(self):
+        self.vectorizer.vocabulary_ = []
+        self.vocabulary_ = []
+        self.idf_ = []
+
     def set_vocabulary(self, vocabulary):
         self.vocabulary_ = vocabulary
     
