@@ -35,7 +35,7 @@ pip install -r requirements.txt
 ## Usage example
 
 ```python
-
+from utilities.TfidfVectorizer import TfidfVectorizer
 
 # Initialize TFIDF object
 tfidf = TfidfVectorizer()
